@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+# define n 5
+int stack[n];
+int top=-1;
+
+void push(int);
+void pop();
+void display();
+int main()
+{
+    int choice,item;
+    while(1)
+    {
+        printf("\nMenu\n");
+        printf("1.push\n2.pop\n3.display\n4.exit\n");
+        printf("enter your choice ");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:printf("enter item ");
+                   scanf("%d",&item);
+                   push(item);
+                   break;
+            case 2:pop();
+                   break;
+            case 3:display();
+                   break;
+            case 4:exit(0);
+            default:printf("invalid");
+            
+        }
+    }
+}
+void pop()
+{
+    if(top==-1)
+    {
+        printf("list is empty");
+    }
+    else
+    {
+        printf("deleted element is %d",stack[top]);
+        top--;
+    }
+    
+}
+void push(int item)
+{
+    if(top==(n-1))
+    {
+        printf("list is full");
+    }
+    else 
+    {
+        top++;
+        stack[top]=item;
+        
+    }
+    
+    
+}
+void display()
+{
+int i;
+    if(top==-1)
+    {
+        printf("list is empty");
+    }
+    else
+    {
+        for(i=top;i>=0;i--)
+        {
+            printf("%d\t",stack[i]);
+        
+        }
+    }
+        
+}
